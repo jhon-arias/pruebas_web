@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="CSEP" />
+
+<meta name="date" content="2023-01-27" />
+
+<title>Indicadores_OCDE</title>
+
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">My Website</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Indicadores_OCDE</h1>
+<h4 class="author">CSEP</h4>
+<h4 class="date">2023-01-27</h4>
+
+</div>
+
+
+<div
+id="desde-el-año-2019-al-2022-oefa-ha-aprobado-un-total-de-13090-informes-de-supervision-siendo-los-subsectores-de-residuos-sólidos-e-hidrocarburos-los-que-presentan-un-mayor-numero-de-informes-aprobados-26.7-y-24.3-respectivamente.-en-ambos-casos-se-incluyen-supervisiones-realizadas-por-las-oficinas-desconcentradas."
+class="section level5">
+<h5>Desde el año 2019 al 2022 OEFA ha aprobado un total de 13,090
+informes de supervision siendo los subsectores de Residuos sólidos e
+Hidrocarburos los que presentan un mayor numero de informes aprobados
+(26.7% y 24.3% respectivamente). En ambos casos se incluyen
+supervisiones realizadas por las Oficinas Desconcentradas.</h5>
+<pre><code>##           TXCOORDINACION 2019 2020 2021 2022 Total Pctj_Total
+##  CONSULTORAS AMBIENTALES  113  100  103  100   416       3.2%
+##              AGRICULTURA  289  144  131  217   781         6%
+##                    PESCA  304  285  191  248  1028       7.9%
+##             ELECTRICIDAD  314  375  187  272  1148       8.8%
+##                  MINERÍA  353  404  251  261  1269       9.7%
+##                INDUSTRIA  782  333  247  415  1777      13.6%
+##            HIDROCARBUROS  878  771  773  758  3180      24.3%
+##         RESIDUOS SOLIDOS 1377  781  641  692  3491      26.7%
+##                    Total 4410 3193 2524 2963 13090          -</code></pre>
+</div>
+<div
+id="esos-13090-informes-de-supervision-aprobados-corresponden-a-supervisiones-realizadas-a-5453-administrados-en-8-subsectores."
+class="section level5">
+<h5>Esos 13,090 informes de supervision aprobados corresponden a
+supervisiones realizadas a 5,453 Administrados en 8 subsectores.</h5>
+<pre><code>##           TXCOORDINACION Administrados PCTJ_Admin
+##             ELECTRICIDAD           123       2.3%
+##                  MINERÍA           138       2.5%
+##  CONSULTORAS AMBIENTALES           211       3.9%
+##                    PESCA           234       4.3%
+##              AGRICULTURA           581      10.7%
+##                INDUSTRIA          1122      20.6%
+##         RESIDUOS SOLIDOS          1314      24.1%
+##            HIDROCARBUROS          1730      31.7%
+##                    Total          5453          -</code></pre>
+</div>
+<div
+id="del-total-de-administrados-supervisados-el-37.4-cuenta-con-informes-de-supervision-aprobados-de-almenos-2-años-en-el-periodo-2019-al-2022."
+class="section level5">
+<h5>Del total de administrados supervisados el 37.4% cuenta con informes
+de supervision aprobados de almenos 2 años en el periodo 2019 al
+2022.</h5>
+<pre><code>##  SUPERVISADOS Administrados PCTJ_Admin
+##         1 año          3399      62.6%
+##        2 años          1024      18.8%
+##        3 años           539       9.9%
+##        4 años           471       8.7%
+##         Total          5433          -</code></pre>
+</div>
+<div
+id="del-total-de-administrados-con-informe-de-supervision-aprobado-en-mas-de-2-años-en-el-periodo-2019-al-2022-se-identificó-que-el-68.5-de-ellos-presenta-una-mejora-en-cuanto-a-la-recomendacion-de-los-informes-aprobados."
+class="section level5">
+<h5>Del total de administrados con informe de supervision aprobado en
+mas de 2 años en el periodo 2019 al 2022, se identificó que el 68.5% de
+ellos presenta una mejora en cuanto a la recomendacion de los informes
+aprobados.</h5>
+<pre><code>## # A tibble: 2 x 3
+##   CAMBIO   ADMIN  PCTJ
+##   &lt;chr&gt;    &lt;int&gt; &lt;dbl&gt;
+## 1 NEGATIVO   643  31.5
+## 2 POSITIVO  1401  68.5</code></pre>
+<pre><code>## # A tibble: 16 x 4
+## # Groups:   TXCOORDINACION [8]
+##    TXCOORDINACION          CAMBIO   ADMIN  PCTJ
+##    &lt;chr&gt;                   &lt;chr&gt;    &lt;int&gt; &lt;dbl&gt;
+##  1 AGRICULTURA             NEGATIVO    59  56.7
+##  2 AGRICULTURA             POSITIVO    45  43.3
+##  3 CONSULTORAS AMBIENTALES NEGATIVO    15  13.6
+##  4 CONSULTORAS AMBIENTALES POSITIVO    95  86.4
+##  5 ELECTRICIDAD            NEGATIVO    21  19.3
+##  6 ELECTRICIDAD            POSITIVO    88  80.7
+##  7 HIDROCARBUROS           NEGATIVO    53  16.1
+##  8 HIDROCARBUROS           POSITIVO   276  83.9
+##  9 INDUSTRIA               NEGATIVO    52  17  
+## 10 INDUSTRIA               POSITIVO   254  83  
+## 11 MINERÍA                 NEGATIVO    25  25.3
+## 12 MINERÍA                 POSITIVO    74  74.7
+## 13 PESCA                   NEGATIVO    35  18.3
+## 14 PESCA                   POSITIVO   156  81.7
+## 15 RESIDUOS SOLIDOS        NEGATIVO   383  48.1
+## 16 RESIDUOS SOLIDOS        POSITIVO   413  51.9</code></pre>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
